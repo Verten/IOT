@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html ng-app="iotApp" ng-controller="resourceController">
+<head>
+    <meta charset="{CHARSET}">
+    <title>ERICSSON IOT</title>
+    <link rel="stylesheet" href="css/assets.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!--add by ebinhon for angularjs-->
+    <script type='text/javascript' src='js/angular.min.js'></script>
+    <script type='text/javascript' src='js/angular-route.min.js'></script>
+    <script type='text/javascript' src='js/angularjs/iotApp.js'></script>
+    <script type='text/javascript' src='js/angularjs/resource/controller/resourceController.js'></script>
+    <!--end-->
+</head>
+
+<body>
+<div class="eaContainer-things">
+    <div class="eaContainer-SystemBarHolder">
+        <div class="eaContainer-SystemBar">
+            <div class="eaContainer-SystemBar-right">
+                <div style="display: inline-block;">
+                    <div class="eaHelpButton">
+                        <a class="eaHelpButton-link"><span class="eaHelpButton-span">Help</span></a>
+
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+
+                    <div class="eaContainer-LogoutButton">
+                        <a class="eaContainer-LogoutButton-link" href="/logout">Log Out</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="eaContainer-SystemBar-left">
+                <a href="#ui-IOT" tabindex="-1" class="eaContainer-SystemBar-logoAnchor">
+                    <div class="eaContainer-SystemBar-logo"></div>
+                </a>
+                <div class="eaContainer-SystemBar-name"><a href="#ui-IOT" tabindex="-1"
+                                                           class="eaContainer-SystemBar-nameValue">ERICSSON IOT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eaContainer-applicationHolder">
+        <div>
+            <div class="elLayouts-Wrapper">
+                <div class="elLayouts-TopSection">
+                    <div class="elLayouts-TopSection-breadcrumb">
+                        <div class="ebBreadcrumbs">
+                            <div class="ebBreadcrumbs-item">
+                                <a href="#app1" class="ebBreadcrumbs-link" title="">Home</a>
+
+                            </div>
+                            <div class="ebBreadcrumbs-item">
+                                <a href="#app1" class="ebBreadcrumbs-link" title="">Things</a>
+
+									<span class="ebBreadcrumbs-arrow" tabindex="1">
+                                        <i class="ebIcon ebIcon_small ebIcon_interactive ebIcon_downArrow_10px"></i>
+                                    </span>
+                                <div class="ebBreadcrumbs-list">
+                                    <ul class="ebComponentList">
+
+                                        <li class="ebComponentList-item">
+                                            <a href="#app1/app2" class="ebComponentList-link" title="">Discover IoT
+                                                API</a>
+                                        </li>
+
+                                        <li class="ebComponentList-item">
+                                            <a href="#app1/app3" class="ebComponentList-link" title="">Download Spec</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="elLayouts-TopSection-title">Things</h1>
+                    <div class="elLayouts-QuickActionBar">
+                        <div class="elLayouts-QuickActionBar-contents">
+
+                            <div class="elLayouts-QuickActionBar-center">
+                                <div class="elLayouts-QuickActionBar-commands">
+                                    <div class="elLayouts-QuickActionBar-commandsBlock">
+                                        <div class="elLayouts-QuickActionBar-items elLayouts-QuickActionBar-items_show_true">
+
+                                            <button class="ebBtn elLayouts-ActionBarItem-button">Remove</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="elLayouts-QuickActionBar-right">
+                                <div class="elLayouts-filterActionBar">
+                                    <a class="elLayouts-ActionBarItem" href="" title="Boom!">All</a>
+                                    <a class="elLayouts-ActionBarItem" href="" title="Boom!">5 devices</a>
+                                    <a class="elLayouts-ActionBarItem" href="" title="Boom!">2 device types</a>
+                                    <div class="ebLayout-HeadingCommands-separator"></div>
+                                    <input type="text" class="ebInput ebInput_width_xLong"
+                                           placeholder="Filter by thing name or type name">
+                                </div>
+                            </div>
+                            <div class="elLayouts-clearFix"></div>
+
+                        </div>
+                    </div>
+                    <div class="elLayouts-Things-Table">
+                        <table class="ebTable ebTable_striped">
+                            <thead>
+                            <tr>
+                                <th class="ebTable-checkbox"><label>
+                                    <input class="ebCheckbox" type="checkbox" value="1">
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                    <span class="ebCheckbox-label"></span>
+                                </label></th>
+                                <th class="ebTable-th_resizable ebTable-th_sortable">
+                                    <div class="ebTable-header">
+                                        <span class="ebTable-headerText">Name</span>
+                                        <span class="ebTable-headerSort ebSort">
+                                            <i class="ebSort-arrow_up"></i>
+                                            <i class="ebSort-arrow_down ebSort-arrow_active"></i>
+                                        </span>
+                                        <div class="ebTable-headerResize"></div>
+                                    </div>
+                                </th>
+                                <th class="ebTable-th_resizable ebTable-th_sortable">
+                                    <div class="ebTable-header">
+                                        <span class="ebTable-headerText">Type</span>
+												<span class="ebTable-headerSort ebSort">
+                                                    <i class="ebSort-arrow_up"></i>
+                                                    <i class="ebSort-arrow_down"></i>
+                                                </span>
+                                        <div class="ebTable-headerResize"></div>
+                                    </div>
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody class="elTablelib-Table-body">
+                                <!--ng-repeat start-->
+                                <tr class="ebTableRow" ng-click="changeDeviceDetail(device)" ng-repeat="device in _device">
+                                    <td class="ebTable-checkbox"><label>
+                                        <input class="ebCheckbox" type="checkbox" value="1">
+                                        <span class="ebCheckbox-inputStatus"></span>
+                                        <span class="ebCheckbox-label"></span>
+                                    </label></td>
+                                    <td ng-bind="device.name" class="ebTable-contentColumn">GC5 RV</td>
+                                    <td ng-bind="device.type" class="ebTable-contentColumn">Geely Vehicle</td>
+                                </tr>
+                                <!--ng-repeat end-->
+                            </tbody>
+                        </table>
+                        <ul class="ebPagination">
+                            <li class="ebPagination-previous">
+                                <a class="ebPagination-previousAnchor" href="#"></a>
+                            </li>
+                            <li class="ebPagination-pagesContainer">
+                                <ul class="ebPagination ebPagination-pages">
+                                    <li class="ebPagination-entry">
+                                        <a class="ebPagination-entryAnchor" href="#">1</a>
+                                    </li>
+                                    <li class="ebPagination-entry">
+                                        <a class="ebPagination-entryAnchor ebPagination-entryAnchor" href="#">2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="ebPagination-next">
+                                <a class="ebPagination-nextAnchor" href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--for detail device info start-->
+            <div class="elLayouts-deviceInfo">
+                <div class="ebLayout-SectionHeading">
+                    <h2>Device Info</h2>
+                    <div class="ebLayout-HeadingCommands">
+                        <div class="elLayouts-MultiSlidingPanels-top-actions ebLayout-HeadingCommands-block">
+                            <div class="ebLayout-HeadingCommands-iconHolder">
+                                <i class="elLayouts-MultiSlidingPanels-close-right ebIcon ebIcon_close ebIcon_interactive"
+                                   title="Close" style="display: block;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ebLayout-clearFix"></div>
+                </div>
+                <div class="ebLayout-deviceInfoContent">
+                    <div class="ebLayout-deviceInfo-item">
+                        <div class="deviceInfo-item-label">Device Name</div>
+                        <div class="deviceInfo-item-value" ng-bind="_device_detail.name">GX 2</div>
+                    </div>
+                    <div class="ebLayout-deviceInfo-item">
+                        <div class="deviceInfo-item-label">Device Type</div>
+                        <div class="deviceInfo-item-value" ng-bind="_device_detail.type">Geely Vehicle</div>
+                    </div>
+                    <div class="ebLayout-deviceInfo-item">
+                        <div class="deviceInfo-item-label" ng-bind="_device_detail.serialNumber">Serial Number</div>
+                        <div class="deviceInfo-item-value">EW344546</div>
+                    </div>
+                    <div class="ebLayout-deviceInfo-item">
+                        <div class="deviceInfo-item-label" ng-bind="_device_detail.manufaturer">Manufaturer</div>
+                        <div class="deviceInfo-item-value">Geely</div>
+                    </div>
+                    <div class="ebLayout-deviceInfo-item">
+                        <div class="deviceInfo-item-label">Certificate</div>
+                        <div class="deviceInfo-item-value">
+                            <div class="ebDropdown">
+                                <button type="button" class="ebDropdown-header">
+                                    <span class="ebDropdown-caption">Actions</span>
+                                    <span class="ebDropdown-iconHolder"><i
+                                            class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i></span>
+                                </button>
+                                <ul class="ebComponentList" style="display: none;">
+                                    <li class="ebComponentList-item">Option 1</li>
+                                    <li class="ebComponentList-item ebComponentList-item_selected">Option 2</li>
+                                    <li class="ebComponentList-separator"></li>
+                                    <li class="ebComponentList-item">Option 3</li>
+                                    <li class="ebComponentList-item">Option 4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ebLayout-deviceInfo-item deviceInfo-item-url">
+                        <div class="deviceInfo-item-label">URL to Display Device Status</div>
+                        <div class="deviceInfo-item-value">http://localhost:8080/v1/312ifdhajsfadha/312...</div>
+                    </div>
+                </div>
+                <button class="ebBtn ebBtn-bottom-full">Edit</button>
+            </div>
+            <!--for detail device info end-->
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

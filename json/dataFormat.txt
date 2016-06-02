@@ -1,0 +1,63 @@
+数据的格式我们可以再协商去改的，这些数据的命名也是一样的，你们有什么要改的就发邮件给我。
+
+DeviceType----------------------------------GET
+[
+  {
+    "id": "DGS#1464600082599001",
+    "description": "this is a test car",
+    "name": "testCarType",
+    "attributes": [
+      {
+        "id": "RS1464600082599004",
+        "dataType": "INTEGER",
+        "description": "dg",
+        "metricUnit": "dg"
+      },
+      {
+        "id": "RS1464600082599003",
+        "dataType": "INTEGER",
+        "description": "dg",
+        "metricUnit": "dg"
+      }
+    ]
+  }
+]
+
+注：POST的数据与上相同，但是没有Id.
+
+
+Device------------------------------------------POST
+{
+    "name" : "carInstance",
+    "type" : "DGS#1464600082599001"
+}
+
+
+Device------------------------------------------GET
+{
+  "datas": [
+    {
+      "id": ".#DGGS#14640740711030011.#carInstance1.#SS#14646000825990021.#RS14646000825990041",
+      "dataType": "INTEGER",
+      "description": "dg",
+      "name": null,
+      "metricUnit": "dg",
+      "type": "RS#INTEGER"
+    },
+    {
+      "id": ".#DGGS#14640740711030011.#carInstance1.#SS#14646000825990021.#RS14646000825990031",
+      "dataType": "INTEGER",
+      "description": "dg",
+      "name": null,
+      "metricUnit": "dg",
+      "type": "RS#INTEGER"
+    }
+  ],
+  "id": ".#DGGS#14640740711030011.#carInstance1",
+  "name": "carInstance",
+  "type": "DGS#1464600082599001"
+}
+
+
+
+

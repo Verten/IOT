@@ -1,0 +1,468 @@
+/*system bar*/
+.eaContainer-SystemBar {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  z-index: 1500;
+  border-top: 4px solid #0066b3;
+  white-space: nowrap;
+  background: #f0f0f0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #f0f0f0));
+  background: -ms-linear-gradient(top, #ffffff, #f0f0f0);
+  background: -o-linear-gradient(center top, #ffffff 0%, #f0f0f0 100%);
+  background: -webkit-linear-gradient(center top, #ffffff 0%, #f0f0f0 100%);
+  background: -moz-linear-gradient(center top, #ffffff 0%, #f0f0f0 100%);
+  background: linear-gradient(center top, #ffffff 0%, #f0f0f0 100%);
+  -webkit-box-shadow: 0 2px 2px #D2D2D2;
+  -moz-box-shadow: 0 2px 2px #D2D2D2;
+  box-shadow: 0 2px 2px #D2D2D2;
+}
+.eaContainer-SystemBar::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  font-size: 0;
+  top: -4px;
+  left: 0;
+  background: #0066b3;
+  background: -o-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background: -moz-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background: -webkit-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background: -ms-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0.1, #a2c517), color-stop(0.3, #009046), color-stop(0.5, #0082b6), color-stop(0.7, #151f77), color-stop(1, #db0050));
+  background: linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+}
+.eaContainer-SystemBar-name {
+  display: inline-block;
+  padding: 0 5px 0 0;
+  margin: 0;
+  font-size: 1.4em;
+  line-height: 40px;
+  color: #58585A;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: absolute;
+  left: 40px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.eaContainer-SystemBar-nameValue {
+  font-size: 16.8px;
+  color: #58585A;
+}
+.eaContainer-SystemBar-nameValue:hover {
+  color: #58585A;
+}
+.eaContainer-SystemBar-nameValue:focus {
+  text-decoration: none;
+  outline: none;
+}
+.eaContainer-SystemBar-logoAnchor {
+  outline: none;
+}
+.eaContainer-SystemBar-logo {
+  height: 40px;
+  display: inline-block;
+  background: url('../resources/systemBar/econ01.svg') no-repeat center center transparent;
+  width: 40px;
+  background-size: 20px 20px;
+}
+.eaContainer-SystemBar-left {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.eaContainer-SystemBar-right {
+  float: right;
+}
+a.eaContainer-SystemBar-nameValue:hover {
+  text-decoration: none !important;
+}
+@media screen and (max-width: 500px) {
+  .eaContainer-SystemBar {
+    z-index: 1000;
+  }
+}
+
+
+
+/*bread crumb*/
+.compactCommands .elLayouts-QuickActionBar-commandsBlock {
+  visibility: hidden;
+  position: absolute;
+}
+.compactCommands .elLayouts-QuickActionBar-commandsCompact {
+  display: block;
+}
+.elLayouts-clearFix {
+  clear: both;
+}
+.elLayouts-Wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s all ease-in-out;
+}
+.elLayouts-Wrapper-backToTop {
+  position: fixed;
+  border: solid 1px #ccc;
+  background: #efefef;
+  padding: 5px;
+  box-shadow: 0 0 3px #ccc;
+  border-radius: 5px;
+  bottom: -30px;
+  opacity: 0;
+  right: 55px;
+  cursor: pointer;
+  transition: bottom 0.5s, opacity 0.3s, right 0.6s ease-in-out;
+}
+.elLayouts-Wrapper-backToTop_show_true {
+  bottom: 10px;
+  opacity: 1;
+  display: block;
+}
+.elLayouts-Wrapper-backToTop_moveRight_true {
+  right: 345px;
+}
+.elLayouts-TopSection {
+  position: relative;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+@media screen and (max-width: 768px) {
+  .elLayouts-TopSection {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .elLayouts-TopSection {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+  }
+}
+.elLayouts-TopSection-breadcrumb {
+  padding-top: 1.2rem;
+  margin-bottom: -1.2rem;
+}
+.elLayouts-TopSection-title {
+  padding: 0;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.elLayouts-QuickActionBar {
+  height: 32px;
+  transition: height 0.2s;
+  position: relative;
+}
+.elLayouts-QuickActionBar-contents {
+  padding: 0.4rem 0;
+  background-color: #ededed;
+  position: absolute;
+  width: 100%;
+  line-height: 0;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+}
+.elLayouts-ActionBarItem {
+  line-height: 2.4rem;
+  margin: 0 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.elLayouts-QuickActionBar-contents_position_fixed {
+  position: fixed;
+  top: 45px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 100%;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  border-bottom: 1px solid #CCCCCC;
+}
+.elLayouts-QuickActionBar-iconHolder {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.6rem;
+}
+.elLayouts-QuickActionBar-separator {
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 1px solid #CCCCCC;
+  margin: 0;
+  height: 2.4rem;
+}
+.elLayouts-QuickActionBar-breadcrumb {
+  height: 2.4rem;
+  float: left;
+}
+.elLayouts-QuickActionBar-commands {
+  display: inline-block;
+  margin: 0;
+  overflow: hidden;
+}
+.elLayouts-QuickActionBar-commands-separator {
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 1px solid #CCCCCC;
+  margin: 0 8px;
+  height: 2.4rem;
+}
+.elLayouts-QuickActionBar-commandsBlock {
+  vertical-align: middle;
+  display: inline-block;
+}
+.elLayouts-QuickActionBar-commandsBlock > * {
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+.elLayouts-QuickActionBar-commandsBlock :last-child {
+  margin-right: 0;
+}
+.elLayouts-QuickActionBar-commandsCompact {
+  margin-left: 1.1rem;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  display: none;
+}
+.elLayouts-QuickActionBar-commands_compact .elLayouts-QuickActionBar-commandsBlock {
+  visibility: hidden;
+  position: absolute;
+}
+.elLayouts-QuickActionBar-commands_compact .elLayouts-QuickActionBar-commandsCompact {
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  .elLayouts-QuickActionBar-commands .elLayouts-QuickActionBar-commandsBlock {
+    visibility: hidden;
+    position: absolute;
+  }
+  .elLayouts-QuickActionBar-commands .elLayouts-QuickActionBar-commandsCompact {
+    display: block;
+  }
+}
+.elLayouts-QuickActionBar-commands_show_false {
+  display: none;
+}
+.elLayouts-QuickActionBar-left {
+  float: left;
+  height: 100%;
+}
+.elLayouts-QuickActionBar-center {
+  float: left;
+  height: 100%;
+}
+.elLayouts-QuickActionBar-right {
+  float: right;
+  height: 100%;
+}
+.elLayouts-QuickActionBar-component {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s, margin 0.2s;
+}
+.elLayouts-QuickActionBar-component_show_true {
+  margin-top: 0.4rem;
+  margin-bottom: calc(1px - 0.4rem);
+}
+.ebContainer-clearFix {
+  zoom: 1;
+}
+.ebContainer-clearFix:before,
+.ebContainer-clearFix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.ebContainer-clearFix:after {
+  clear: both;
+}
+
+
+/* action bar*/
+.elLayouts-PanelActionBar {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.elLayouts-PanelActionBar-button {
+  min-width: 10px;
+}
+.elLayouts-PanelActionBar-button:not(.elLayouts-PanelActionBar-button_pressed) {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
+  -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
+  -ms-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
+  border-color: transparent;
+  background: none;
+}
+.elLayouts-PanelActionBar-button:not(.elLayouts-PanelActionBar-button_pressed):hover {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.elLayouts-PanelActionBar-button_pressed {
+  background-color: #E0E1E1;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2) inset;
+}
+.elLayouts-PanelActionBar-button-label {
+  display: none;
+  vertical-align: middle;
+}
+.elLayouts-PanelActionBar_showLabel .elLayouts-PanelActionBar-button-label {
+  display: inline;
+}
+.elLayouts-PanelActionBar-contextMenu {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
+/* system bar help */
+.eaHelpButton {
+  display: inline-block;
+  line-height: 40px;
+  vertical-align: middle;
+      margin-right: -4px;
+}
+.eaHelpButton_invisible {
+  display: none;
+}
+.eaHelpButton-list {
+  position: fixed;
+  z-index: 10;
+  display: none;
+  padding: 4px 0;
+  margin: 0;
+  list-style: none;
+  background-color: white;
+  border: #bfbfbf solid 1px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 116px;
+}
+.eaHelpButton-listSeparator {
+  height: 1px;
+  margin: 0.4rem;
+  background-color: #E6E6E6;
+}
+.eaHelpButton-listItem {
+  padding: 0px 0.8rem;
+  line-height: 24px;
+  font-size: 1.2rem;
+  background-color: white;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.eaHelpButton-listItem-anchor {
+  display: block;
+  width: 100%;
+}
+.eaHelpButton-listItem:hover {
+  background-color: #e6f0f7;
+}
+.eaHelpButton-listItem:active {
+  background-color: #cce0f0;
+}
+.eaHelpButton-list-helpCenter {
+  display: none;
+}
+.eaHelpButton-link {
+  color: #0066B3;
+  margin-right: 8px;
+  font-size: 1.2rem;
+  padding: 0 10px 0 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 18px center;
+  border-left: solid 1px #D2D2D2;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url("../resources/systemBar/help_black.svg");
+}
+.eaHelpButton-link:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 640px) {
+  .eaHelpButton-link {
+    font-size: 0;
+  }
+}
+.eaHelpButton:hover {
+  background: #e8e8e8;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), color-stop(1, #e8e8e8));
+  background: -ms-linear-gradient(top, #f2f2f2, #e8e8e8);
+  background: -o-linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+  background: -webkit-linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+  background: -moz-linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+  background: linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+}
+
+/* system bar logout*/
+.eaContainer-LogoutButton {
+  display: inline-block;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.eaContainer-LogoutButton-link {
+  color: #0066B3;
+  font-size: 1.2rem;
+  padding: 0 18px 0 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 18px center;
+  border-left: solid 1px #D2D2D2;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url("../resources/systemBar/logout_black.svg");
+}
+.eaContainer-LogoutButton-link:hover {
+  text-decoration: underline;
+}
+.eaContainer-LogoutButton:hover {
+  background: #e8e8e8;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), color-stop(1, #e8e8e8));
+  background: -ms-linear-gradient(top, #f2f2f2, #e8e8e8);
+  background: -o-linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+  background: -webkit-linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+  background: -moz-linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+  background: linear-gradient(center top, #f2f2f2 0%, #e8e8e8 100%);
+}
+@media screen and (max-width: 640px) {
+  .eaContainer-LogoutButton-link {
+    padding-left: 34px;
+    text-indent: -9999px;
+    width: 0;
+  }
+}
+

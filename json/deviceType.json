@@ -1,0 +1,21 @@
+[
+  {
+    "id": "DGS#1464600082599001",
+    "description": "this is a test car",
+    "name": "testCarType",
+    "attributes": [
+      {
+        "id": "RS1464600082599004",
+        "dataType": "INTEGER",
+        "description": "dg",
+        "metricUnit": "dg"
+      },
+      {
+        "id": "RS1464600082599003",
+        "dataType": "INTEGER",
+        "description": "dg",
+        "metricUnit": "dg"
+      }
+    ]
+  }
+]

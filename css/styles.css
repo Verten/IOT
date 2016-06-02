@@ -1,0 +1,92 @@
+/* things */
+.eaContainer-things {
+    height: 100%;
+}
+.eaContainer-things .elLayouts-Things-Table{
+	margin-top: 24px;
+}
+.eaContainer-things .elLayouts-Things-Table .ebTable{
+	width: 100%;
+}
+.eaContainer-things .elLayouts-Things-Table .ebPagination{
+	text-align: right;
+	margin-top: 4px;
+}
+.eaContainer-things .elLayouts-Things-Table .ebTable-checkbox{
+	width: 5%;
+	border-right: #e6e6e6 solid 0px;
+}
+.eaContainer-things .elLayouts-filterActionBar{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.eaContainer-things .eaContainer-applicationHolder {
+    height: calc(100% - 44px);
+}
+.eaContainer-things .eaContainer-applicationHolder>div {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.eaContainer-things .elLayouts-Wrapper-showInfo {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+.eaContainer-things .elLayouts-deviceInfo{
+	height: 100%;
+	width: calc(30% - 3px);
+	background-color: #f2f2f2;
+	display: inline-block;
+	vertical-align: top;
+	padding: 24px;
+	box-sizing: border-box;
+	position: absolute;
+	right: -30%;
+	top: 0;
+	transition: 0.3s all ease-in-out;
+}
+.eaContainer-things .elLayouts-deviceInfo-show{
+	right: 0;
+}
+.eaContainer-things .ebLayout-deviceInfoContent{
+	padding-top: 14px;
+}
+.eaContainer-things .ebLayout-deviceInfo-item{
+	padding: 10px 0;
+	
+}
+.eaContainer-things .deviceInfo-item-label{
+	color: #8d8d8d;
+	display: inline-block;
+	width: 100px;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.eaContainer-things .deviceInfo-item-value{
+	display: inline-block;
+	vertical-align: middle;
+}
+.eaContainer-things .deviceInfo-item-url{
+	padding-top: 8px;
+	line-height: 14px;
+}
+.eaContainer-things .deviceInfo-item-url .deviceInfo-item-label{
+	vertical-align: top;
+}
+.eaContainer-things .deviceInfo-item-url .deviceInfo-item-value{
+	width: calc(100% - 111px);
+	vertical-align: top;
+	word-wrap:break-word;
+	height: 58px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+}
+.eaContainer-things .ebBtn-bottom-full{
+	width: calc(100% - 48px);
+	position: absolute;
+	bottom: 32px;
+}
