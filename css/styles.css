@@ -102,16 +102,17 @@
     max-width: 360px;
 }
 .addThingLink{
-	padding: 16px 24px;
+	padding: 16px;
 	box-sizing: border-box;
 	border-radius: 5px;
-	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+	
 	margin-right: 12px;
 	display: inline-block;
-	text-align: center;
-	width: 200px;
+	text-align: left;
+	
 	position: relative;
 	z-index: 1;
+	cursor: pointer;
 }
 .eaContainer-addThingSection {
     position: absolute;
@@ -120,7 +121,7 @@
     right: 40px;
 }
 .eaContainer-addThingSection:nth-child(3) .elLayouts-topButtonSection .addThingLink{
-    margin-left: 216px;
+    margin-left: 140px;
 }
 .eaContainer-addDevice,
 .eaContainer-addDeviceType{
@@ -132,26 +133,35 @@
 }
 .eaContainer-addThingSectionPressed .addThingLink{
 	
-	background-color: rgba(204,224,240,0.5);
+	
 	z-index: -1;
 }
 .addThingLink span{
 	display: block;
-	padding-top: 12px;
+	padding-top: 8px;
 	color: #8d8d8d;
 }
 .addThingLink .ebIcon{	
-	width: 48px;
-	height: 48px;
+	width: 72px;
+	height: 72px;
 	background-size: 100%;
 	margin: 0 auto;
 	display: block;
+	
 }
 .addThingLink .ebIcon_addDevice{
 	background-image: url('../resources/image/thing.svg');
 }
 .addThingLink .ebIcon_addDeviceType{
 	background-image: url('../resources/image/deviceType.svg');
+}
+.addThingLink .ebIcon_addDevice:hover,
+.eaContainer-addThingSectionPressed .addThingLink .ebIcon_addDevice{
+	background-image: url('../resources/image/thingHover.svg');
+}
+.addThingLink .ebIcon_addDeviceType:hover,
+.eaContainer-addThingSectionPressed .addThingLink .ebIcon_addDeviceType{
+	background-image: url('../resources/image/deviceTypeHover.svg');
 }
 .addThingLink:hover{
 	text-decoration: none;
@@ -162,18 +172,12 @@
 	cursor: pointer;
 }
 .ebLayout-SectionDeviceInfo,
-.ebLayout-SectionAttributes{
-	width: 50%;
+.ebLayout-SectionDeviceSpecification,
+.ebLayout-SectionDeviceResourceAttributes{
+	width: 60%;
 }
-.formSectionItem-selectAttributes .ebLayout-formSectionItem-label{
-	display: block;
-	line-height: 14px;
-	padding-bottom: 8px;
-	font-weight: bold;
-}
-.formSectionItem-selectAttributes .ebLayout-formSectionItem-label .ebText_alternative{
-	font-weight: normal;
-}
+
+
 .formSectionItem-selectAttributes .ebLayout-formSectionItem-value{
 	display: block;
 	max-width: initial;
@@ -187,29 +191,28 @@
     width: calc(33.33% - 6px);
     display: inline-block;
     box-sizing: border-box;
+    cursor: pointer;
 }
-.formSectionItem-selectAttributes .addAttributesButton,
-.formSectionItem-selectAttributes .addAttributesItemButton{
+.ebLayout-SectionDeviceResourceAttributes .addAttributesItemButton{
 	cursor: pointer;
+	padding: 8px 0;
 }
-.formSectionItem-selectAttributes .addAttributesButton i,
-.formSectionItem-selectAttributes .addAttributesItemButton i{
+.elLayouts-addAttributes .addAttributesButton i,
+.ebLayout-SectionDeviceResourceAttributes .addAttributesItemButton i{
 	margin: 2px;
 }
-.formSectionItem-selectAttributes .addAttributesButton span,
-.formSectionItem-selectAttributes .addAttributesItemButton span{
-	color: #8d8d8d;
+.elLayouts-addAttributes .addAttributesButton span,
+.ebLayout-SectionDeviceResourceAttributes .addAttributesItemButton span{
 	display: inline-block;
 	vertical-align: middle;
 	padding-left: 2px;
 }
 .elLayouts-addAttributes{
-	background: #efefef;
-	padding: 12px;
 	margin: 3px 2px;
 	width: calc(100% - 5px);
 	box-sizing: border-box;
 }
+
 .elLayouts-addAttributes .elLayouts-addAttributes-title{
 	margin: 4px 0 16px;
 }
@@ -274,7 +277,7 @@
 	box-sizing: border-box;
 	padding: 32px 24px;
 	text-align: center;
-	width: 50%;
+	width: 60%;
 	margin: 20px 0;
 }
 
@@ -318,7 +321,7 @@
 	margin-right: 4px;
 }
 .ebLayout-SectionCustomAttributes .ebTable{
-	width: 50%;
+	width: 60%;
 }
 .ebLayout-SectionCustomAttributes .ebLayout-SectionTitle > span{
 	display: inline-block;
@@ -327,9 +330,10 @@
 .ebLayout-SectionCustomAttributes .ebIcon_upArrow_10px{
 	background-image: url('../resources/10px/ArrowUpSmall_black_10px.svg')!important;
 }
-.ebLayout-SectionCustomAttributes .ebLayout-SectionTitle{
+/*.ebLayout-SectionCustomAttributes .ebLayout-SectionTitle{
 	display: inline-block;
-}
+	cursor: pointer;
+}*/
 
 
 
@@ -465,4 +469,9 @@
 .eaContainer-deviceStatusReport .deviceInfo-item-label{
 	color: #8d8d8d;
 	padding-bottom: 4px;
+}
+.eaContainer-deviceStatusReport .ebIcon_refresh{
+	width: 12px;
+	height: 12px;
+	margin-right: 2px;
 }

@@ -53,8 +53,8 @@ angular.module('iotApp.resourceController', [])
                     $log.info('getting Device Type List Successfully.');
                     $log.debug(successResponse);
                     _deviceType = successResponse.data;
-                    angular.forEach(_deviceType, function (value, key) {
-                        value.tmpType = 'devicetype'
+                    angular.forEach(_deviceType, function (typevalue, key) {
+                        typevalue.tmpType = 'devicetype'
                     });
                     $scope._deviceType = _deviceType;
                 }, function (FailedResponse) {
@@ -102,6 +102,13 @@ angular.module('iotApp.resourceController', [])
                 showElement = !showElement;
             };
 
+            var selectAll = function($event){
+                $event.stopPropagation();
+                angular.forEach($scope._device_list, function (value, key) {
+                    value.checked = $scope.selectAllFlag;
+                });
+            };
+
             var removeDevice = function () {
                 for(var index = _device_list.length; index--; index >= 0){
                     var _device = _device_list[index];
@@ -109,6 +116,12 @@ angular.module('iotApp.resourceController', [])
                         var _device_id = '';
                         if(_device.tmpType == 'device'){
                             _device_id = _device.id;
+                            angular.forEach($scope._device, function (value, key) {
+                                if(value.id == _device_id){
+                                    $scope._device.splice(key,1);
+                                    _device_list.splice(key , 1);
+                                }
+                            });
                         }else if(_device.tmpType == 'devicetype'){
                             _device_id = _device.typeDetail.id;
                             angular.forEach(_deviceType, function (value, key) {
@@ -116,6 +129,7 @@ angular.module('iotApp.resourceController', [])
                                     _deviceType.splice(key, 1);
                                 }
                             });
+                            _device_list.splice(index , 1);
                         }
                         //send $http request to remove this device
                         var request = {
@@ -134,7 +148,6 @@ angular.module('iotApp.resourceController', [])
                         //    $log.error(FailedResponse);
                         //});
                         //
-                        _device_list.splice(index , 1);
                     }
                 }
 
@@ -200,23 +213,30 @@ angular.module('iotApp.resourceController', [])
 
             var showAllList = function () {
                 if(_all_list.length != 0){
-                    return false;
-                }
-                _all_list = [];
-                _tmp_device_list = _device_list;
-                angular.forEach(_device_list, function (value, key) {
-                    _all_list.push(value);
-                });
-                angular.forEach(_deviceType, function (value, key) {
-                    var deviceType = {
-                        name: value.name,
-                        type: 'Device Type',
-                        tmpType: value.tmpType,
-                        typeDetail: value
+                    _device_list = _all_list;
+                }else{
+                    _all_list = [];
+                    if(_tmp_device_list.length != 0){
+                        _device_list = _tmp_device_list;
+                    }else{
+                        _device_list = _device;
+                        _tmp_device_list = _device;
                     }
-                    _all_list.push(deviceType);
-                });
-                _device_list = _all_list;
+                    angular.forEach(_device_list, function (value, key) {
+                        value.tmpType = 'device';
+                        _all_list.push(value);
+                    });
+                    angular.forEach(_deviceType, function (value, key) {
+                        var deviceType = {
+                            name: value.name,
+                            type: 'Device Type',
+                            tmpType: 'devicetype',
+                            typeDetail: value
+                        };
+                        _all_list.push(deviceType);
+                    });
+                    _device_list = _all_list;
+                }
                 var paginationData = pagination(_device_list, 1, 5);
                 var _newList = paginationData.data;
                 $scope._device_list = _newList;
@@ -230,6 +250,9 @@ angular.module('iotApp.resourceController', [])
                 }else{
 
                 }
+                angular.forEach(_device_list, function (value, key) {
+                    value.tmpType = 'device';
+                });
                 var paginationData = pagination(_device_list, 1, max_per_page_item);
                 var _newList = paginationData.data;
                 $scope._device_list = _newList;
@@ -244,7 +267,7 @@ angular.module('iotApp.resourceController', [])
                     var deviceType = {
                         name: value.name,
                         type: 'Device Type',
-                        tmpType: value.tmpType,
+                        tmpType: 'devicetype',
                         typeDetail: value
                     }
                     _device_list.push(deviceType);
@@ -263,6 +286,7 @@ angular.module('iotApp.resourceController', [])
             $scope.removeDevice = removeDevice;
             $scope.showElement = showElement;
             $scope.selectDevice = selectDevice;
+            $scope.selectAll = selectAll;
             $scope.pagination = pagination;
             $scope.changePage = changePage;
             $scope.showAllList = showAllList;

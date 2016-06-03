@@ -1,392 +1,467 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="iotApp" ng-controller="thingController">
+<head>
+    <meta charset="{CHARSET}">
+    <title>ERICSSON IOT</title>
+    <link rel="stylesheet" href="css/assets.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!--add by ebinhon for angularjs-->
+    <script type='text/javascript' src='js/angular.min.js'></script>
+    <script type='text/javascript' src='js/angular-route.min.js'></script>
+    <script type='text/javascript' src='js/angularjs/iotApp.js'></script>
+    <script type='text/javascript' src='js/angularjs/resource/controller/resourceController.js'></script>
+    <script type='text/javascript' src='js/angularjs/thing/controller/thingController.js'></script>
+    <!--end-->
+</head>
 
-	<head>
-		<meta charset="{CHARSET}">
-		<title></title>
-		<link rel="stylesheet" href="css/assets.css" />
-		<link rel="stylesheet" href="css/base.css" />
-		<link rel="stylesheet" href="css/styles.css" />
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-	</head>
+<body>
+<div class="eaContainer-addThing">
+    <div class="eaContainer-SystemBarHolder">
+        <div class="eaContainer-SystemBar">
+            <div class="eaContainer-SystemBar-right">
+                <div style="display: inline-block;">
+                    <div class="eaHelpButton">
+                        <a class="eaHelpButton-link"><span class="eaHelpButton-span">Help</span></a>
 
-	<body>
-		<div class="eaContainer-addThing">
-			<div class="eaContainer-SystemBarHolder">
-				<div class="eaContainer-SystemBar">
-					<div class="eaContainer-SystemBar-right">
-						<div style="display: inline-block;">
-							<div class="eaHelpButton">
-								<a class="eaHelpButton-link"><span class="eaHelpButton-span">Help</span></a>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
 
-							</div>
-						</div>
-						<div style="display: inline-block;">
+                    <div class="eaContainer-LogoutButton">
+                        <a class="eaContainer-LogoutButton-link" href="/logout">Log Out</a>
+                    </div>
+                </div>
 
-							<div class="eaContainer-LogoutButton">
-								<a class="eaContainer-LogoutButton-link" href="/logout">Log Out</a>
-							</div>
-						</div>
+            </div>
+            <div class="eaContainer-SystemBar-left">
+                <a href="#ui-IOT" tabindex="-1" class="eaContainer-SystemBar-logoAnchor">
+                    <div class="eaContainer-SystemBar-logo"></div>
+                </a>
+                <div class="eaContainer-SystemBar-name"><a href="#ui-IOT" tabindex="-1"
+                                                           class="eaContainer-SystemBar-nameValue">ERICSSON IOT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eaContainer-applicationHolder">
+        <div>
+            <div class="elLayouts-Wrapper">
+                <div class="elLayouts-TopSection">
+                    <div class="elLayouts-TopSection-breadcrumb">
+                        <div class="ebBreadcrumbs">
+                            <div class="ebBreadcrumbs-item">
+                                <a href="index.html" class="ebBreadcrumbs-link" title="">Home</a>
 
-					</div>
-					<div class="eaContainer-SystemBar-left">
-						<a href="#ui-IOT" tabindex="-1" class="eaContainer-SystemBar-logoAnchor">
-							<div class="eaContainer-SystemBar-logo"></div>
-						</a>
-						<div class="eaContainer-SystemBar-name"><a href="#ui-IOT" tabindex="-1" class="eaContainer-SystemBar-nameValue">ERICSSON IOT</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="eaContainer-applicationHolder">
-				<div>
-					<div class="elLayouts-Wrapper">
-						<div class="elLayouts-TopSection">
-							<div class="elLayouts-TopSection-breadcrumb">
-								<div class="ebBreadcrumbs">
-									<div class="ebBreadcrumbs-item">
-										<a href="index.html" class="ebBreadcrumbs-link" title="">Home</a>
-
-									</div>
-									<div class="ebBreadcrumbs-item">
-										<a href="Resources.html" class="ebBreadcrumbs-link" title="">Things</a>
+                            </div>
+                            <div class="ebBreadcrumbs-item">
+                                <a href="Resources.html" class="ebBreadcrumbs-link" title="">Things</a>
 
 										<span class="ebBreadcrumbs-arrow" tabindex="1">
             <i class="ebIcon ebIcon_small ebIcon_interactive ebIcon_downArrow_10px"></i>
         </span>
-										<div class="ebBreadcrumbs-list">
-											<ul class="ebComponentList">
+                                <div class="ebBreadcrumbs-list">
+                                    <ul class="ebComponentList">
 
-												<li class="ebComponentList-item">
-													<a href="#app1/app2" class="ebComponentList-link" title="">Discover IoT API</a>
-												</li>
+                                        <li class="ebComponentList-item">
+                                            <a href="#app1/app2" class="ebComponentList-link" title="">Discover IoT
+                                                API</a>
+                                        </li>
 
-												<li class="ebComponentList-item">
-													<a href="#app1/app3" class="ebComponentList-link" title="">Download Spec</a>
-												</li>
+                                        <li class="ebComponentList-item">
+                                            <a href="#app1/app3" class="ebComponentList-link" title="">Download Spec</a>
+                                        </li>
 
-											</ul>
-										</div>
+                                    </ul>
+                                </div>
 
-									</div>
-									<div class="ebBreadcrumbs-item">
-										<a href="#app1" class="ebBreadcrumbs-link" title="">Add a Thing</a>
+                            </div>
+                            <div class="ebBreadcrumbs-item">
+                                <a href="#app1" class="ebBreadcrumbs-link" title="">Add a Thing</a>
 
-									</div>
-								</div>
-							</div>
-							
-								<h1 class="elLayouts-TopSection-title">Add a Thing</h1>
-								
-							
-						</div>
-						<div class="eaContainer-addThingSection addDeviceSection eaContainer-addThingSectionPressed">
-                        <div class="elLayouts-topButtonSection">
-									<div class="addThingLink addThingLink_pressed" href="addThing.html">
-										<i class="ebIcon ebIcon_addDevice"></i>
-										<span>Add a Device</span>
-									</div>
-									
-								</div>
-                        <div class="eaContainer-addDeviceType">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1 class="elLayouts-TopSection-title">Add a Thing</h1>
+
+                </div>
+                <div class="eaContainer-addThingSection addDeviceSection eaContainer-addThingSectionPressed">
+                    <div class="elLayouts-topButtonSection">
+                        <div class="addThingLink" href="addThing.html">
+                            <i class="ebIcon ebIcon_addDevice"></i>
+                            <span>Add a Device</span>
+                        </div>
+
+                    </div>
+                    <div class="eaContainer-addDeviceType">
                         <div class="ebLayout-SectionHeading">
-							<h2>Add a Device</h2>
-						</div>
-						<div class="ebText_alternative">
-							<span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
-						</div>
-						<div class="ebLayout-SectionDeviceInfo">
-							<div class="ebLayout-SectionTitle">Device Info</div>
-							<div class="ebLayout-formSection">
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Device Name
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
-										<span class="ebInput-tips">
+                            <h2>Add a Device</h2>
+                        </div>
+                        <div class="ebText_alternative">
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
+                        </div>
+                        <div class="ebLayout-SectionDeviceInfo">
+                            <div class="ebLayout-SectionTitle">Device Info</div>
+                            <div class="ebLayout-formSection">
+                                <div class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Device Name
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_device.name" type="text" class="ebInput ebInput_width_full"
+                                               placeholder=""/>
+												<span class="ebInput-tips">
                                            <span class="ebText_alternative">It will be used to identify this device in IoT.</span>
-										</span>
-									</div>
-								</div>
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Choose a Device Type
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<div class="ebSelect">
-    <button class="ebSelect-header">
-        <span class="ebSelect-value" title="Options">Options</span>
-        <span class="ebSelect-iconHolder">
-            <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
-        </span>
-    </button>
-    <div class="ebSelect-body">
-        <ul class="ebComponentList">
-            <li class="ebComponentList-item" title="Option 1">Geely Vehicle</li>
-            <li class="ebComponentList-item" title="Option 2">Geely Vehicle</li>
-        </ul>
+												</span>
+                                    </div>
+                                </div>
+                                <div class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Choose a Device Type
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <div class="ebSelect">
+                                            <button class="ebSelect-header">
+                                                <span class="ebSelect-value" ng-bind="_device.typeName" title="Options">Options</span>
+														<span class="ebSelect-iconHolder">
+                                                            <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
+                                                        </span>
+                                            </button>
+                                            <div class="ebSelect-body">
+                                                <ul class="ebComponentList">
+                                                    <li ng-repeat="deviceType in _deviceType_list"
+                                                        class="ebComponentList-item"
+                                                        ng-click="changeTypeForDevice(_device, deviceType)" title="Option 1">
+                                                        {{deviceType.name}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="ebInput-tips">
+                                            <span class="ebText_alternative">Lorem ipsum dolor sit amet, consectetur</span>
+                                        </div>
+                                        <a class="createDeviceTypeLink">Create a new device type</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="showDeviceTypeAttributeInfoFlag == true" class="ebLayout-SectionAttributes">
+                            <div class="ebLayout-SectionTitle">
+                                <div>Device Identification</div>
+                                <div class="ebText_alternative">
+                                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
+                                </div>
+                            </div>
+                            <div class="ebLayout-formSection">
+                                <div ng-show="_device.typeDetail.hasSerialNumber" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Serial Number
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input type="text" class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_device.typeDetail.hasDescription" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Description
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input type="text" class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_device.typeDetail.hasManufacturer" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Manufacturer
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input type="text" class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_device.typeDetail.hasModel" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Model
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input type="text" class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_device.typeDetail.hasFirmwareModel" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Firmware Model
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input type="text" class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_device.typeDetail.hasHardwareModel" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Hardware Model
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input type="text" class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="showDeviceTypeAttributeInfoFlag == true" class="ebLayout-SectionCustomAttributes">
+                            <div class="ebLayout-SectionTitle">
+                                <span>Device Resource Attributes</span>
+                            </div>
+                            <div class="ebLayout-formSection">
+                                <table class="ebTable">
+                                    <thead>
+                                    <tr>
+                                        <th>Attribute Name</th>
+                                        <th>Info Type</th>
+                                        <th>Unit (Optional)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="attr in _device.typeDetail.attributes">
+                                            <td ng-bind="attr.description"></td>
+                                            <td ng-bind="attr.dataType"></td>
+                                            <td ng-bind="attr.metricUnit"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="ebLayoutButtonSection">
+                            <a class="ebBtn ebBtn_large" href="Resources.html">Cancel</a>
+                            <a class="ebBtn ebBtn_color_darkBlue ebBtn_large" ng-click="saveDevice()" href="#">Add</a><!-- href="confirmation.html"-->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eaContainer-addThingSection addDeviceTypeSection">
+                    <div class="elLayouts-topButtonSection">
+
+                        <div class="addThingLink" href="addDeviceType.html">
+                            <i class="ebIcon ebIcon_addDeviceType"></i>
+                            <span>Add a Device Tpye</span>
+                        </div>
+                    </div>
+                    <div class=" eaContainer-addDeviceType">
+                        <div class="ebLayout-SectionHeading">
+                            <h2>Add a Device Type</h2>
+                        </div>
+                        <div class="ebText_alternative">
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
+                        </div>
+                        <div class="ebLayout-SectionDeviceInfo">
+                            <div class="ebLayout-SectionTitle">Device Type Info</div>
+                            <div class="ebLayout-formSection">
+                                <div class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Device Type Name
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.name" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+												<span class="ebInput-tips">
+                                           <span class="ebText_alternative">It will be used to identify this device in IoT.</span>
+												</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="ebLayout-SectionDeviceSpecification">
+                            <div class="ebLayout-SectionTitle">
+                                <div>Device Specification</div>
+                                <div class="ebText_alternative">
+                                    <span>Selected characters and their definition will be used straightforwardly in communication protocols and REST APIs. </span>
+                                </div>
+                            </div>
+
+                            <div class="ebLayout-formSection">
+                                <div class="ebLayout-formSectionItem formSectionItem-selectAttributes">
+
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <label ng-click="showAttributeInfo()">
+                                            <input ng-model="_deviceType.hasSerialNumber" class="ebCheckbox"
+                                                   type="checkbox" value="1"/>
+                                            <span class="ebCheckbox-inputStatus"></span>
+                                            <span class="ebCheckbox-label">Serial Number</span>
+                                        </label>
+                                        <label ng-click="showAttributeInfo()">
+                                            <input ng-model="_deviceType.hasDescription" class="ebCheckbox"
+                                                   type="checkbox" value="1"/>
+                                            <span class="ebCheckbox-inputStatus"></span>
+                                            <span class="ebCheckbox-label">Description</span>
+                                        </label>
+                                        <label ng-click="showAttributeInfo()">
+                                            <input ng-model="_deviceType.hasManufacturer" class="ebCheckbox"
+                                                   type="checkbox" value="1"/>
+                                            <span class="ebCheckbox-inputStatus"></span>
+                                            <span class="ebCheckbox-label">Manufacturer</span>
+                                        </label>
+                                        <label ng-click="showAttributeInfo()">
+                                            <input ng-model="_deviceType.hasModel" class="ebCheckbox" type="checkbox"
+                                                   value="1"/>
+                                            <span class="ebCheckbox-inputStatus"></span>
+                                            <span class="ebCheckbox-label">Model</span>
+                                        </label>
+                                        <label ng-click="showAttributeInfo()">
+                                            <input ng-model="_deviceType.hasFirmwareModel" class="ebCheckbox"
+                                                   type="checkbox" value="1"/>
+                                            <span class="ebCheckbox-inputStatus"></span>
+                                            <span class="ebCheckbox-label">Firmware Model</span>
+                                        </label>
+                                        <label ng-click="showAttributeInfo()">
+                                            <input ng-model="_deviceType.hasHardwareModel" class="ebCheckbox"
+                                                   type="checkbox" value="1"/>
+                                            <span class="ebCheckbox-inputStatus"></span>
+                                            <span class="ebCheckbox-label">Hardware Model</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div ng-show="showAttributeInfoFlag == true"
+                                 class="ebLayout-formSection attributeInformation">
+                                <div class="ebText_alternative">
+                                    Identification you do not define may still be edited individually on devices that
+                                    are assigned this device type.
+                                </div>
+                                <div ng-show="_deviceType.hasSerialNumber == true" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Serial Number
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.serialNumber" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_deviceType.hasDescription == true" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Description
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.description" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_deviceType.hasManufacturer == true" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Manufacturer
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.manufacturer" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_deviceType.hasModel == true" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Model
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.model" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_deviceType.hasFirmwareModel == true" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Firmware Model
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.firmwareModel" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div ng-show="_deviceType.hasHardwareModel == true" class="ebLayout-formSectionItem">
+                                    <div class="ebLayout-formSectionItem-label">
+                                        Hardware Model
+                                    </div>
+                                    <div class="ebLayout-formSectionItem-value">
+                                        <input ng-model="_deviceType.hardwareModel" type="text"
+                                               class="ebInput ebInput_width_full" placeholder=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ebLayout-SectionDeviceResourceAttributes">
+                            <div class="ebLayout-SectionTitle">
+                                <div>Device Resource Attributes</div>
+                                <div class="ebText_alternative">
+                                    <span>Define what resources will be sent as updates from the device to Ericsson IoT. </span>
+                                </div>
+                            </div>
+
+                            <div class="ebLayout-formSection">
+
+                                <div class="elLayouts-addAttributes">
+
+                                    <div class="elLayouts-addAttributes-head">
+                                        <div class="ebText_alternative">
+                                            Attribute Name
+                                        </div>
+                                        <div class="ebText_alternative">
+                                            Info Type
+                                        </div>
+                                        <div class="ebText_alternative">
+                                            Unit (Optional)
+                                        </div>
+                                    </div>
+                                    <ul>
+
+                                        <li ng-repeat="attr in attribute_info" class="elLayouts-addAttributes-item">
+                                            <input ng-model="attr.name" type="text" class="ebInput" placeholder="">
+                                            <div class="ebSelect">
+                                                <button class="ebSelect-header">
+                                                    <span class="ebSelect-value" title="Options"
+                                                          ng-bind="attr.type"></span>
+															<span class="ebSelect-iconHolder">
+                                                                <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
+                                                            </span>
+                                                </button>
+                                                <div class="ebSelect-body">
+                                                    <ul class="ebComponentList">
+                                                        <li class="ebComponentList-item"
+                                                            ng-click="changeTypeForAttribute(attr,'String')"
+                                                            title="Option 1">String
+                                                        </li>
+                                                        <li class="ebComponentList-item"
+                                                            ng-click="changeTypeForAttribute(attr,'Double')"
+                                                            title="Option 2">Double
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <input ng-model="attr.unit" type="text" class="ebInput" placeholder="">
+
+                                            <i ng-if="$index != 0" ng-click="deleteAttribute(attr.name)"
+                                               class="ebIcon ebIcon_close" title="Close"></i>
+
+                                        </li>
+
+                                    </ul>
+                                    <div ng-click="addAttribute()" class="addAttributesItemButton">
+                                        <i class="ebIcon ebIcon_plus"></i>
+                                        <span>Add Custom Attribute</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="ebLayoutButtonSection">
+                            <a class="ebBtn ebBtn_large" href="Resources.html">Cancel</a>
+                            <button ng-click="saveDeviceType()" class="ebBtn ebBtn_color_darkBlue ebBtn_large">Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
-										<div class="ebInput-tips">
-                                           <span class="ebText_alternative">Lorem ipsum dolor sit amet, consectetur</span>
-										</div>
-										<a class="createDeviceTypeLink">Create a new device type</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ebLayout-SectionAttributes">
-							<div class="ebLayout-SectionTitle">
-								<div>Attributes</div>
-								<div class="ebText_alternative">
-							<span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
-						</div>
-							</div>
-							
-							<div class="ebLayout-formSection">
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Serial Number
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
-										
-									</div>
-								</div>
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Manufaturer
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
-										
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ebLayout-SectionCustomAttributes">
-							<div class="ebLayout-SectionTitle">
-								<i class="ebIcon ebIcon_small ebIcon_interactive ebIcon_downArrow_10px"></i>
-								<span>Display Custom Attributes (2)</span>
-								
-							</div>
-							<div class="ebLayout-formSection" style="display: none;">
-								<table class="ebTable"> 
-    <thead> 
-        <tr> 
-            <th>Attribute Name</th> 
-            <th>Info Type</th> 
-            <th>Unit (Optional)</th> 
-           
-        </tr> 
-    </thead> 
-    <tbody> 
-        <tr> 
-            <td>Item</td> 
-            <td>Details</td> 
-            <td>Details</td> 
-       
-        </tr> 
-        <tr> 
-            <td>Item</td> 
-            <td>Details</td> 
-            <td>Details</td> 
-       
-        </tr> 
-    </tbody> 
-</table>
-							</div>
-						</div>
-					    <div class="ebLayoutButtonSection">
-					    	<a class="ebBtn ebBtn_large" href="Resources.html">Cancel</a>
-					    	 <a class="ebBtn ebBtn_color_darkBlue ebBtn_large" href="confirmation.html">Add</a>
-                             
-					    </div>
-					   </div>
-						</div>
-					    <div class="eaContainer-addThingSection addDeviceTypeSection">
-					    	<div class="elLayouts-topButtonSection">
-									
-									<div class="addThingLink" href="addDeviceType.html">
-										<i class="ebIcon ebIcon_addDeviceType"></i>
-										<span>Add a Device Tpye</span>
-									</div>
-								</div>
-					    	<div class=" eaContainer-addDeviceType">
-					    	<div class="ebLayout-SectionHeading">
-							<h2>Add a Device Type</h2>
-						</div>
-						<div class="ebText_alternative">
-							<span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
-						</div>
-						<div class="ebLayout-SectionDeviceInfo">
-							<div class="ebLayout-SectionTitle">Device Type Info</div>
-							<div class="ebLayout-formSection">
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Device Type Name
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
-										<span class="ebInput-tips">
-                                           <span class="ebText_alternative">It will be used to identify this device in IoT.</span>
-										</span>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<div class="ebLayout-SectionAttributes">
-							<div class="ebLayout-SectionTitle">
-								<div>Attributes</div>
-
-							</div>
-
-							<div class="ebLayout-formSection">
-								<div class="ebLayout-formSectionItem formSectionItem-selectAttributes">
-									<div class="ebLayout-formSectionItem-label">
-										Select Attributes
-										<div class="ebText_alternative">
-											<span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
-										</div>
-									</div>
-
-									<div class="ebLayout-formSectionItem-value">
-										<label>
-											<input class="ebCheckbox" type="checkbox" value="1" />
-											<span class="ebCheckbox-inputStatus"></span>
-											<span class="ebCheckbox-label">Serial Number</span>
-										</label>
-										<label>
-											<input class="ebCheckbox" type="checkbox" value="1" />
-											<span class="ebCheckbox-inputStatus"></span>
-											<span class="ebCheckbox-label">Description</span>
-										</label>
-										<label>
-											<input class="ebCheckbox" type="checkbox" value="1" />
-											<span class="ebCheckbox-inputStatus"></span>
-											<span class="ebCheckbox-label">Manufacturer</span>
-										</label>
-										<label>
-											<input class="ebCheckbox" type="checkbox" value="1" />
-											<span class="ebCheckbox-inputStatus"></span>
-											<span class="ebCheckbox-label">Model</span>
-										</label>
-										<label>
-											<input class="ebCheckbox" type="checkbox" value="1" />
-											<span class="ebCheckbox-inputStatus"></span>
-											<span class="ebCheckbox-label">Firmware Model</span>
-										</label>
-										<label>
-											<input class="ebCheckbox" type="checkbox" value="1" />
-											<span class="ebCheckbox-inputStatus"></span>
-											<span class="ebCheckbox-label">Hardware Model</span>
-										</label>
-										<label class="addAttributesButton">
-											<i class="ebIcon ebIcon_plus"></i>
-											<span>Add Custom Attribute</span>
-										</label>
-										<div class="elLayouts-addAttributes" style="display: none;">
-											<div class="elLayouts-addAttributes-title">
-												Custom Attributes
-											</div>
-											<div class="elLayouts-addAttributes-head">
-												<div class="ebText_alternative">
-													Attribute Name
-												</div>
-												<div class="ebText_alternative">
-													Info Type
-												</div>
-												<div class="ebText_alternative">
-													Unit (Optional)
-												</div>
-											</div>
-											<ul>
-												<li class="elLayouts-addAttributes-item">
-													<input type="text" class="ebInput" placeholder="">
-													<div class="ebSelect">
-														<button class="ebSelect-header">
-															<span class="ebSelect-value" title="Options">String</span>
-															<span class="ebSelect-iconHolder">
-            <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
-        </span>
-														</button>
-														<div class="ebSelect-body">
-															<ul class="ebComponentList">
-																<li class="ebComponentList-item" title="Option 1">Option</li>
-																<li class="ebComponentList-item" title="Option 2">Option</li>
-															</ul>
-														</div>
-													</div>
-													<input type="text" class="ebInput" placeholder="">
-												    <i class="ebIcon ebIcon_close" title="Close"></i>
-												</li>
-												<li class="elLayouts-addAttributes-item">
-													<input type="text" class="ebInput" placeholder="">
-													<div class="ebSelect">
-														<button class="ebSelect-header">
-															<span class="ebSelect-value" title="Options">String</span>
-															<span class="ebSelect-iconHolder">
-            <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
-        </span>
-														</button>
-														<div class="ebSelect-body">
-															<ul class="ebComponentList">
-																<li class="ebComponentList-item" title="Option 1">Option</li>
-																<li class="ebComponentList-item" title="Option 2">Option</li>
-															</ul>
-														</div>
-													</div>
-													<input type="text" class="ebInput" placeholder="">
-												    <i class="ebIcon ebIcon_close" title="Close"></i>
-												</li>
-											</ul>
-										    <label class="addAttributesItemButton">
-											<i class="ebIcon ebIcon_plus"></i>
-											<span>Add Custom Attribute</span>
-										</label>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-							<div class="ebLayout-formSection attributeInformation">
-								<div class="attributeInformationTitle">Attribute Information</div>
-								<div class="ebText_alternative">
-									Attributes you do not define may still be edited individually on devices that are assigned this device type.
-								</div>
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Serial Number
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
-
-									</div>
-								</div>
-								<div class="ebLayout-formSectionItem">
-									<div class="ebLayout-formSectionItem-label">
-										Manufaturer
-									</div>
-									<div class="ebLayout-formSectionItem-value">
-										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ebLayoutButtonSection">
-							<a class="ebBtn ebBtn_large" href="Resources.html">Cancel</a>
-							<button class="ebBtn ebBtn_color_darkBlue ebBtn_large">Add</button>
-						</div>
-					   </div>
-					    </div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</body>
+</body>
 
 </html>

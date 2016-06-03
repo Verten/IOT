@@ -13,6 +13,7 @@
     <script type='text/javascript' src='js/angular-route.min.js'></script>
     <script type='text/javascript' src='js/angularjs/iotApp.js'></script>
     <script type='text/javascript' src='js/angularjs/resource/controller/resourceController.js'></script>
+    <script type='text/javascript' src='js/angularjs/thing/controller/thingController.js'></script>
     <!--end-->
 </head>
 
@@ -121,7 +122,7 @@
                             <thead>
                             <tr>
                                 <th class="ebTable-checkbox"><label>
-                                    <input class="ebCheckbox" type="checkbox" value="1">
+                                    <input ng-model="selectAllFlag" ng-click="selectAll($event)" class="ebCheckbox" type="checkbox" value="1">
                                     <span class="ebCheckbox-inputStatus"></span>
                                     <span class="ebCheckbox-label"></span>
                                 </label></th>
@@ -185,7 +186,8 @@
             <!--for detail device info start-->
             <div class="elLayouts-deviceInfo">
                 <div class="ebLayout-SectionHeading">
-                    <h2>Device Info</h2>
+                    <h2 ng-show="_device_detail.tmpType == 'device'">Device Info</h2>
+                    <h2 ng-show="_device_detail.tmpType == 'devicetype'">Device Type Info</h2>
                     <div class="ebLayout-HeadingCommands">
                         <div class="elLayouts-MultiSlidingPanels-top-actions ebLayout-HeadingCommands-block">
                             <div class="ebLayout-HeadingCommands-iconHolder">
@@ -197,7 +199,7 @@
                     <div class="ebLayout-clearFix"></div>
                 </div>
                 <div class="ebLayout-deviceInfoContent">
-                    <div class="ebLayout-deviceInfo-item">
+                    <div ng-show="_device_detail.tmpType == 'device'" class="ebLayout-deviceInfo-item">
                         <div class="deviceInfo-item-label">Device Name</div>
                         <div class="deviceInfo-item-value" ng-bind="_device_detail.name">GX 2</div>
                     </div>
@@ -206,14 +208,10 @@
                         <div class="deviceInfo-item-value" ng-bind="_device_detail.typeDetail.name">Geely Vehicle</div>
                     </div>
                     <!--attribute-->
-                    <div class="ebLayout-deviceInfo-item" ng-repeat="attr in _device_detail.typeDetail.attributes">
+                    <div ng-show="_device_detail.tmpType == 'devicetype'" class="ebLayout-deviceInfo-item" ng-repeat="attr in _device_detail.typeDetail.attributes">
                         <div class="deviceInfo-item-label" ng-bind="attr.description">Serial Number</div>
-                        <div class="deviceInfo-item-value" ng-bind="_device_detail.serialNumber">EW344546</div>
+                        <div class="deviceInfo-item-value" ng-bind="attr.metricUnit">EW344546</div>
                     </div>
-                    <!--<div class="ebLayout-deviceInfo-item">
-                        <div class="deviceInfo-item-label" >Manufaturer</div>
-                        <div class="deviceInfo-item-value" ng-bind="_device_detail.manufaturer">Geely</div>
-                    </div>-->
 
                     <div class="ebLayout-deviceInfo-item">
                         <div class="deviceInfo-item-label">Certificate</div>
@@ -225,8 +223,9 @@
                                 </button>
                                 <div class="ebDropdown-body">
                                     <ul class="ebComponentList">
-                                        <li class="ebComponentList-item">Option 1</li>
-                                        <li class="ebComponentList-item">Option 2</li>
+                                        <li class="ebComponentList-item">Download</li>
+                                        <li class="ebComponentList-item">Regeneration</li>
+
                                     </ul>
                                 </div>
                             </div>

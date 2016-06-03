@@ -4,5 +4,6 @@
 
 'use strict';
 angular.module('iotApp',[
-    'iotApp.resourceController'
+    'iotApp.resourceController',
+    'iotApp.thingController'
 ]);

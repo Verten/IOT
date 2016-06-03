@@ -20,20 +20,20 @@ $(function(){
 			 	});
 			 	
 			 	//Add Custom Attribute
-			 	$('.addAttributesButton').click(function(){
+			 	//$('.addAttributesButton').click(function(){
 			 		
-			 	    $(this).next('.elLayouts-addAttributes').slideDown(300);
-			 	    $('.addAttributesButton').hide();
+			 	//    $(this).next('.elLayouts-addAttributes').slideDown(300);
+			 	//    $('.addAttributesButton').hide();
 			 	    
-			 	});
+			 	//});
 			 	
 			 	//Display Custom Attribute
-			 	$('.ebLayout-SectionCustomAttributes .ebLayout-SectionTitle').click(function(){
+			 	//$('.ebLayout-SectionCustomAttributes .ebLayout-SectionTitle').click(function(){
 			 		
-			 	    $(this).next('.ebLayout-formSection').slideToggle(300);
-			 	    $(this).children(".ebIcon").toggleClass('ebIcon_upArrow_10px');
+			 	//    $(this).next('.ebLayout-formSection').slideToggle(300);
+			 	//   $(this).children(".ebIcon").toggleClass('ebIcon_upArrow_10px');
 			 	    
-			 	});
+			 	//});
 			 	
 			 	//Add a thing tab
 			 	$('.addThingLink').click(function(){
@@ -42,4 +42,15 @@ $(function(){
 			 	$('.createDeviceTypeLink').click(function(){
 			 		$('.addDeviceTypeSection').addClass('eaContainer-addThingSectionPressed').siblings(".eaContainer-addThingSection").removeClass('eaContainer-addThingSectionPressed');	 	    
 			 	});
-			 })
+			 	
+			 	//thing Action Bar button
+			 	$('.elLayouts-filterActionBar .ebBtn').click(function(){
+			 		$(this).addClass('elLayouts-button_pressed').siblings(".ebBtn").removeClass('elLayouts-button_pressed');	 	    
+			 	});
+
+                //add by ebinhon for select
+                $('.ebComponentList-item').click(function(){
+                    console.log($(this).parent().parent().parent().find('button'));
+                });
+			 	
+			 });
