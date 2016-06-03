@@ -96,7 +96,7 @@
                                     <div class="elLayouts-QuickActionBar-commandsBlock">
                                         <div class="elLayouts-QuickActionBar-items elLayouts-QuickActionBar-items_show_true">
 
-                                            <button class="ebBtn elLayouts-ActionBarItem-button">Remove</button>
+                                            <button ng-click="removeDevice()" ng-show="showElement" class="ebBtn elLayouts-ActionBarItem-button">Remove</button>
                                         </div>
                                     </div>
 
@@ -104,11 +104,11 @@
                             </div>
                             <div class="elLayouts-QuickActionBar-right">
                                 <div class="elLayouts-filterActionBar">
-                                    <a class="elLayouts-ActionBarItem" href="" title="Boom!">All</a>
-                                    <a class="elLayouts-ActionBarItem" href="" title="Boom!">5 devices</a>
-                                    <a class="elLayouts-ActionBarItem" href="" title="Boom!">2 device types</a>
+                                    <a ng-click="showAllList()" class="elLayouts-ActionBarItem" href="" title="Boom!">All</a>
+                                    <a ng-click="showDeviceList(5)" class="elLayouts-ActionBarItem" href="" title="Boom!">{{_device.length}} devices</a>
+                                    <a ng-click="showDeviceTypeList(5)" class="elLayouts-ActionBarItem" href="" title="Boom!">{{_deviceType.length}} device types</a>
                                     <div class="ebLayout-HeadingCommands-separator"></div>
-                                    <input type="text" class="ebInput ebInput_width_xLong"
+                                    <input type="text" ng-model="_filter_condition" class="ebInput ebInput_width_xLong"
                                            placeholder="Filter by thing name or type name">
                                 </div>
                             </div>
@@ -150,9 +150,10 @@
                             </thead>
                             <tbody class="elTablelib-Table-body">
                                 <!--ng-repeat start-->
-                                <tr class="ebTableRow" ng-click="changeDeviceDetail(device)" ng-repeat="device in _device">
+                                <tr class="ebTableRow" ng-click="changeDeviceDetail(device)"
+                                    ng-repeat="device in _device_list | filter: _filter_condition as result">
                                     <td class="ebTable-checkbox"><label>
-                                        <input class="ebCheckbox" type="checkbox" value="1">
+                                        <input ng-click="selectDevice($event,device.tmpType)" class="ebCheckbox" type="checkbox" value="1" ng-model="device.checked">
                                         <span class="ebCheckbox-inputStatus"></span>
                                         <span class="ebCheckbox-label"></span>
                                     </label></td>
@@ -163,21 +164,19 @@
                             </tbody>
                         </table>
                         <ul class="ebPagination">
-                            <li class="ebPagination-previous">
-                                <a class="ebPagination-previousAnchor" href="#"></a>
+                            <li ng-show="paginationObject.current_page > 1 " class="ebPagination-previous">
+                                <a ng-click="changePage(paginationObject.current_page - 1, paginationObject.max_per_page_item)" class="ebPagination-previousAnchor" href="#"></a>
                             </li>
                             <li class="ebPagination-pagesContainer">
                                 <ul class="ebPagination ebPagination-pages">
-                                    <li class="ebPagination-entry">
-                                        <a class="ebPagination-entryAnchor" href="#">1</a>
-                                    </li>
-                                    <li class="ebPagination-entry">
-                                        <a class="ebPagination-entryAnchor ebPagination-entryAnchor" href="#">2</a>
+                                    <li class="ebPagination-entry" ng-repeat="pageIndex in paginationObject.pageList">
+                                        <a ng-if="pageIndex == paginationObject.current_page" class="ebPagination-entryAnchor" href="#">{{pageIndex}}</a>
+                                        <a ng-if="pageIndex != paginationObject.current_page" class="ebPagination-entryAnchor" ng-click="changePage(pageIndex, paginationObject.max_per_page_item)" href="#">{{pageIndex}}</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="ebPagination-next">
-                                <a class="ebPagination-nextAnchor" href="#"></a>
+                            <li ng-show=" paginationObject.current_page  < paginationObject.max_page " class="ebPagination-next">
+                                <a ng-click="changePage(paginationObject.current_page + 1, paginationObject.max_per_page_item)" class="ebPagination-nextAnchor" href="#"></a>
                             </li>
                         </ul>
                     </div>
@@ -204,38 +203,39 @@
                     </div>
                     <div class="ebLayout-deviceInfo-item">
                         <div class="deviceInfo-item-label">Device Type</div>
-                        <div class="deviceInfo-item-value" ng-bind="_device_detail.type">Geely Vehicle</div>
+                        <div class="deviceInfo-item-value" ng-bind="_device_detail.typeDetail.name">Geely Vehicle</div>
                     </div>
-                    <div class="ebLayout-deviceInfo-item">
-                        <div class="deviceInfo-item-label" ng-bind="_device_detail.serialNumber">Serial Number</div>
-                        <div class="deviceInfo-item-value">EW344546</div>
+                    <!--attribute-->
+                    <div class="ebLayout-deviceInfo-item" ng-repeat="attr in _device_detail.typeDetail.attributes">
+                        <div class="deviceInfo-item-label" ng-bind="attr.description">Serial Number</div>
+                        <div class="deviceInfo-item-value" ng-bind="_device_detail.serialNumber">EW344546</div>
                     </div>
-                    <div class="ebLayout-deviceInfo-item">
-                        <div class="deviceInfo-item-label" ng-bind="_device_detail.manufaturer">Manufaturer</div>
-                        <div class="deviceInfo-item-value">Geely</div>
-                    </div>
+                    <!--<div class="ebLayout-deviceInfo-item">
+                        <div class="deviceInfo-item-label" >Manufaturer</div>
+                        <div class="deviceInfo-item-value" ng-bind="_device_detail.manufaturer">Geely</div>
+                    </div>-->
+
                     <div class="ebLayout-deviceInfo-item">
                         <div class="deviceInfo-item-label">Certificate</div>
                         <div class="deviceInfo-item-value">
                             <div class="ebDropdown">
                                 <button type="button" class="ebDropdown-header">
                                     <span class="ebDropdown-caption">Actions</span>
-                                    <span class="ebDropdown-iconHolder"><i
-                                            class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i></span>
+                                    <span class="ebDropdown-iconHolder"><i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i></span>
                                 </button>
-                                <ul class="ebComponentList" style="display: none;">
-                                    <li class="ebComponentList-item">Option 1</li>
-                                    <li class="ebComponentList-item ebComponentList-item_selected">Option 2</li>
-                                    <li class="ebComponentList-separator"></li>
-                                    <li class="ebComponentList-item">Option 3</li>
-                                    <li class="ebComponentList-item">Option 4</li>
-                                </ul>
+                                <div class="ebDropdown-body">
+                                    <ul class="ebComponentList">
+                                        <li class="ebComponentList-item">Option 1</li>
+                                        <li class="ebComponentList-item">Option 2</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="ebLayout-deviceInfo-item deviceInfo-item-url">
                         <div class="deviceInfo-item-label">URL to Display Device Status</div>
-                        <div class="deviceInfo-item-value">http://localhost:8080/v1/312ifdhajsfadha/312...</div>
+                        <a class="deviceInfo-item-value">http://localhost:8080/v1/312ifdhajsfadha/312...</a>
                     </div>
                 </div>
                 <button class="ebBtn ebBtn-bottom-full">Edit</button>

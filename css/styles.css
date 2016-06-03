@@ -109,11 +109,31 @@
 	margin-right: 12px;
 	display: inline-block;
 	text-align: center;
-	min-width: 200px;
+	width: 200px;
+	position: relative;
+	z-index: 1;
 }
-.addThingLink_pressed{
+.eaContainer-addThingSection {
+    position: absolute;
+    top: 108px;
+    left: 40px;
+    right: 40px;
+}
+.eaContainer-addThingSection:nth-child(3) .elLayouts-topButtonSection .addThingLink{
+    margin-left: 216px;
+}
+.eaContainer-addDevice,
+.eaContainer-addDeviceType{
+	display: none;
+}
+.eaContainer-addThingSectionPressed .eaContainer-addDevice,
+.eaContainer-addThingSectionPressed .eaContainer-addDeviceType{
+	display: block;
+}
+.eaContainer-addThingSectionPressed .addThingLink{
 	
 	background-color: rgba(204,224,240,0.5);
+	z-index: -1;
 }
 .addThingLink span{
 	display: block;
@@ -139,6 +159,7 @@
 .createDeviceTypeLink{
 	padding: 12px 0 0;
 	display: block;
+	cursor: pointer;
 }
 .ebLayout-SectionDeviceInfo,
 .ebLayout-SectionAttributes{
@@ -388,4 +409,60 @@
   }
 }
 
-
+/* report */
+.ebLayout-reportDashboardSection{
+	margin-top: 24px;
+	width: 100%;
+}
+.ebLayout-reportDashboardItem{
+	background: #efefef;
+	padding: 24px;
+	margin: 3px 7px;
+	width: calc(33.33% - 12px);
+	display: inline-block;
+	box-sizing: border-box;
+}
+.ebLayout-reportDashboardItem:nth-child(3n+1){
+	margin-left: 0;
+}
+.ebLayout-reportDashboardItem:nth-child(3n){
+	margin-right: 0;
+}
+.reportDashboardTitle{
+	color: #8d8d8d;
+}
+.reportDashboardValue{
+	text-align: center;
+	font-size: 32px;
+	padding: 24px 0;
+}
+.eaContainer-deviceStatusReport .ebText_alternative .lastUpdateTime{
+	display: inline-block;
+	vertical-align: middle;
+}
+.eaContainer-deviceStatusReport .ebText_alternative .ebDropdown{
+	float: right;
+	min-width: 142px;
+}
+.eaContainer-deviceStatusReport .ebComponentList{
+	width: 100%;
+}
+.ebLayout-deviceInfoContent{
+	margin: 12px 0;
+}
+.eaContainer-deviceStatusReport .ebLayout-deviceInfo-item{
+	margin: 0px 7px 16px;
+	width: calc(33.33% - 12px);
+	display: inline-block;
+	box-sizing: border-box;
+}
+.eaContainer-deviceStatusReport .ebLayout-deviceInfo-item:nth-child(3n+1){
+	margin-left: 0;
+}
+.eaContainer-deviceStatusReport .ebLayout-deviceInfo-item:nth-child(3n){
+	margin-right: 0;
+}
+.eaContainer-deviceStatusReport .deviceInfo-item-label{
+	color: #8d8d8d;
+	padding-bottom: 4px;
+}

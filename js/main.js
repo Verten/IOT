@@ -22,7 +22,7 @@ $(function(){
 			 	//Add Custom Attribute
 			 	$('.addAttributesButton').click(function(){
 			 		
-			 	    $(this).next('.elLayouts-addAttributes').show(200);
+			 	    $(this).next('.elLayouts-addAttributes').slideDown(300);
 			 	    $('.addAttributesButton').hide();
 			 	    
 			 	});
@@ -30,8 +30,16 @@ $(function(){
 			 	//Display Custom Attribute
 			 	$('.ebLayout-SectionCustomAttributes .ebLayout-SectionTitle').click(function(){
 			 		
-			 	    $(this).next('.ebLayout-formSection').toggle(200);
+			 	    $(this).next('.ebLayout-formSection').slideToggle(300);
 			 	    $(this).children(".ebIcon").toggleClass('ebIcon_upArrow_10px');
 			 	    
+			 	});
+			 	
+			 	//Add a thing tab
+			 	$('.addThingLink').click(function(){
+			 		$(this).parent().parent().addClass('eaContainer-addThingSectionPressed').siblings(".eaContainer-addThingSection").removeClass('eaContainer-addThingSectionPressed');	 	    
+			 	});
+			 	$('.createDeviceTypeLink').click(function(){
+			 		$('.addDeviceTypeSection').addClass('eaContainer-addThingSectionPressed').siblings(".eaContainer-addThingSection").removeClass('eaContainer-addThingSectionPressed');	 	    
 			 	});
 			 })

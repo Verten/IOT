@@ -1,21 +1,105 @@
 [
   {
-    "id": "DGS#1464600082599001",
-    "description": "this is a test car",
-    "name": "testCarType",
+    "productNumber": "",
+    "id": "DGS#1464689094088001",
+    "description": "this is another test car type",
+    "name": "testCarType 2",
     "attributes": [
       {
-        "id": "RS1464600082599004",
+        "id": "RS1464689094088003",
         "dataType": "INTEGER",
-        "description": "dg",
-        "metricUnit": "dg"
-      },
-      {
-        "id": "RS1464600082599003",
-        "dataType": "INTEGER",
-        "description": "dg",
-        "metricUnit": "dg"
+        "description": "width",
+        "metricUnit": "cm"
       }
     ]
+  },
+  {
+    "productNumber": "",
+    "id": "DGS#1464688864407001",
+    "description": "this is another test car type",
+    "name": "testCarType 2",
+    "attributes": [
+      {
+        "id": "RS1464688864407003",
+        "dataType": "INTEGER",
+        "description": "width",
+        "metricUnit": "cm"
+      }
+    ]
+  },
+  {
+    "productNumber": "",
+    "id": "DGS#1464838104794001",
+    "description": "this is another test car type",
+    "name": "testCarType 2",
+    "attributes": [
+      {
+        "id": "RS1464838104794003",
+        "dataType": "DOUBLE",
+        "description": "width",
+        "metricUnit": "cm"
+      }
+    ]
+  },
+  {
+    "productNumber": "gelly seris",
+    "id": "DGS#1464838388285001",
+    "description": "this is another test car type",
+    "name": "testCarType 2",
+    "attributes": [
+      {
+        "id": "RS1464838388285003",
+        "dataType": "DOUBLE",
+        "description": "width",
+        "metricUnit": "cm"
+      }
+    ]
+  },
+  {
+    "productNumber": "dell",
+    "id": "DGS1464916056306005",
+    "description": "this is another test car type",
+    "name": "testCarType 2",
+    "attributes": [
+      {
+        "id": "RS1464916056306008",
+        "dataType": "INTEGER",
+        "description": "height",
+        "metricUnit": "cm"
+      },
+      {
+        "id": "RS1464916056306007",
+        "dataType": "DOUBLE",
+        "description": "width",
+        "metricUnit": "cm"
+      }
+    ]
+  },
+  {
+    "productNumber": "dell test",
+    "id": "DGS1464917184654001",
+    "description": "this is another test car type",
+    "name": "testcomType 2++",
+    "attributes": [
+      {
+        "id": "RS1464917184654003",
+        "dataType": "DOUBLE",
+        "description": "width",
+        "metricUnit": "cm"
+      },
+      {
+        "id": "RS1464917184654004",
+        "dataType": "INTEGER",
+        "description": "height",
+        "metricUnit": "cm"
+      }
+    ]
+  },
+  {
+    "productNumber": "dell test",
+    "id": "DGS1464922279733001",
+    "description": "this is another test car type",
+    "name": "testcomType 2++",
+    "attributes": []
   }
 ]
