@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<link rel="stylesheet" href="css/assets.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+
+	<body>
+		<div class="eaContainer-addThing">
+			<div class="eaContainer-SystemBarHolder">
+				<div class="eaContainer-SystemBar">
+					<div class="eaContainer-SystemBar-right">
+						<div style="display: inline-block;">
+							<div class="eaHelpButton">
+								<a class="eaHelpButton-link"><span class="eaHelpButton-span">Help</span></a>
+
+							</div>
+						</div>
+						<div style="display: inline-block;">
+
+							<div class="eaContainer-LogoutButton">
+								<a class="eaContainer-LogoutButton-link" href="/logout">Log Out</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="eaContainer-SystemBar-left">
+						<a href="#ui-IOT" tabindex="-1" class="eaContainer-SystemBar-logoAnchor">
+							<div class="eaContainer-SystemBar-logo"></div>
+						</a>
+						<div class="eaContainer-SystemBar-name"><a href="#ui-IOT" tabindex="-1" class="eaContainer-SystemBar-nameValue">ERICSSON IOT</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="eaContainer-applicationHolder">
+				<div>
+					<div class="elLayouts-Wrapper">
+						<div class="elLayouts-TopSection">
+							<div class="elLayouts-TopSection-breadcrumb">
+								<div class="ebBreadcrumbs">
+									<div class="ebBreadcrumbs-item">
+										<a href="#app1" class="ebBreadcrumbs-link" title="">Home</a>
+
+									</div>
+									<div class="ebBreadcrumbs-item">
+										<a href="Resources.html" class="ebBreadcrumbs-link" title="">Things</a>
+
+										<span class="ebBreadcrumbs-arrow" tabindex="1">
+            <i class="ebIcon ebIcon_small ebIcon_interactive ebIcon_downArrow_10px"></i>
+        </span>
+										<div class="ebBreadcrumbs-list">
+											<ul class="ebComponentList">
+
+												<li class="ebComponentList-item">
+													<a href="#app1/app2" class="ebComponentList-link" title="">Discover IoT API</a>
+												</li>
+
+												<li class="ebComponentList-item">
+													<a href="#app1/app3" class="ebComponentList-link" title="">Download Spec</a>
+												</li>
+
+											</ul>
+										</div>
+
+									</div>
+									<div class="ebBreadcrumbs-item">
+										<a href="#app1" class="ebBreadcrumbs-link" title="">Add a Thing</a>																				
+									</div>
+								</div>
+							</div>
+							<div class="elLayouts-TopSection-titleWithButton">
+								<h1 class="elLayouts-TopSection-title">Add a Thing</h1>
+								<div class="elLayouts-topButtonSection">
+									<a class="addThingLink" href="addThing.html">
+										<i class="ebIcon ebIcon_addDevice"></i>
+										<span>Add a Device</span>
+									</a>
+									<a class="addThingLink addThingLink_pressed" href="addDeviceType.html">
+										<i class="ebIcon ebIcon_addDeviceType"></i>
+										<span>Add a Device Tpye</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="ebLayout-SectionHeading">
+							<h2>Add a Device Type</h2>
+						</div>
+						<div class="ebText_alternative">
+							<span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
+						</div>
+						<div class="ebLayout-SectionDeviceInfo">
+							<div class="ebLayout-SectionTitle">Device Type Info</div>
+							<div class="ebLayout-formSection">
+								<div class="ebLayout-formSectionItem">
+									<div class="ebLayout-formSectionItem-label">
+										Device Type Name
+									</div>
+									<div class="ebLayout-formSectionItem-value">
+										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
+										<span class="ebInput-tips">
+                                           <span class="ebText_alternative">It will be used to identify this device in IoT.</span>
+										</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="ebLayout-SectionAttributes">
+							<div class="ebLayout-SectionTitle">
+								<div>Attributes</div>
+
+							</div>
+
+							<div class="ebLayout-formSection">
+								<div class="ebLayout-formSectionItem formSectionItem-selectAttributes">
+									<div class="ebLayout-formSectionItem-label">
+										Select Attributes
+										<div class="ebText_alternative">
+											<span>Lorem ipsum dolor sit amet, consectetur adipisicing edit, sed do eiusmod tempor</span>
+										</div>
+									</div>
+
+									<div class="ebLayout-formSectionItem-value">
+										<label>
+											<input class="ebCheckbox" type="checkbox" value="1" />
+											<span class="ebCheckbox-inputStatus"></span>
+											<span class="ebCheckbox-label">Serial Number</span>
+										</label>
+										<label>
+											<input class="ebCheckbox" type="checkbox" value="1" />
+											<span class="ebCheckbox-inputStatus"></span>
+											<span class="ebCheckbox-label">Description</span>
+										</label>
+										<label>
+											<input class="ebCheckbox" type="checkbox" value="1" />
+											<span class="ebCheckbox-inputStatus"></span>
+											<span class="ebCheckbox-label">Manufacturer</span>
+										</label>
+										<label>
+											<input class="ebCheckbox" type="checkbox" value="1" />
+											<span class="ebCheckbox-inputStatus"></span>
+											<span class="ebCheckbox-label">Model</span>
+										</label>
+										<label>
+											<input class="ebCheckbox" type="checkbox" value="1" />
+											<span class="ebCheckbox-inputStatus"></span>
+											<span class="ebCheckbox-label">Firmware Model</span>
+										</label>
+										<label>
+											<input class="ebCheckbox" type="checkbox" value="1" />
+											<span class="ebCheckbox-inputStatus"></span>
+											<span class="ebCheckbox-label">Hardware Model</span>
+										</label>
+										<label class="addAttributesButton">
+											<i class="ebIcon ebIcon_plus"></i>
+											<span>Add Custom Attribute</span>
+										</label>
+										<div class="elLayouts-addAttributes" style="display: none;">
+											<div class="elLayouts-addAttributes-title">
+												Custom Attributes
+											</div>
+											<div class="elLayouts-addAttributes-head">
+												<div class="ebText_alternative">
+													Attribute Name
+												</div>
+												<div class="ebText_alternative">
+													Info Type
+												</div>
+												<div class="ebText_alternative">
+													Unit (Optional)
+												</div>
+											</div>
+											<ul>
+												<li class="elLayouts-addAttributes-item">
+													<input type="text" class="ebInput" placeholder="">
+													<div class="ebSelect">
+														<button class="ebSelect-header">
+															<span class="ebSelect-value" title="Options">String</span>
+															<span class="ebSelect-iconHolder">
+            <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
+        </span>
+														</button>
+														<div class="ebSelect-body">
+															<ul class="ebComponentList">
+																<li class="ebComponentList-item" title="Option 1">Option</li>
+																<li class="ebComponentList-item" title="Option 2">Option</li>
+															</ul>
+														</div>
+													</div>
+													<input type="text" class="ebInput" placeholder="">
+												    <i class="ebIcon ebIcon_close" title="Close"></i>
+												</li>
+												<li class="elLayouts-addAttributes-item">
+													<input type="text" class="ebInput" placeholder="">
+													<div class="ebSelect">
+														<button class="ebSelect-header">
+															<span class="ebSelect-value" title="Options">String</span>
+															<span class="ebSelect-iconHolder">
+            <i class="ebIcon ebIcon_small ebIcon_downArrow_10px"></i>
+        </span>
+														</button>
+														<div class="ebSelect-body">
+															<ul class="ebComponentList">
+																<li class="ebComponentList-item" title="Option 1">Option</li>
+																<li class="ebComponentList-item" title="Option 2">Option</li>
+															</ul>
+														</div>
+													</div>
+													<input type="text" class="ebInput" placeholder="">
+												    <i class="ebIcon ebIcon_close" title="Close"></i>
+												</li>
+											</ul>
+										    <label class="addAttributesItemButton">
+											<i class="ebIcon ebIcon_plus"></i>
+											<span>Add Custom Attribute</span>
+										</label>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="ebLayout-formSection attributeInformation">
+								<div class="attributeInformationTitle">Attribute Information</div>
+								<div class="ebText_alternative">
+									Attributes you do not define may still be edited individually on devices that are assigned this device type.
+								</div>
+								<div class="ebLayout-formSectionItem">
+									<div class="ebLayout-formSectionItem-label">
+										Serial Number
+									</div>
+									<div class="ebLayout-formSectionItem-value">
+										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
+
+									</div>
+								</div>
+								<div class="ebLayout-formSectionItem">
+									<div class="ebLayout-formSectionItem-label">
+										Manufaturer
+									</div>
+									<div class="ebLayout-formSectionItem-value">
+										<input type="text" class="ebInput ebInput_width_full" placeholder="" />
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ebLayoutButtonSection">
+							<a class="ebBtn ebBtn_large" href="Resources.html">Cancel</a>
+							<button class="ebBtn ebBtn_color_darkBlue ebBtn_large">Add</button>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
